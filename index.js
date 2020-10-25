@@ -478,11 +478,11 @@ export default class Trimmer extends React.Component {
 
 const styles = StyleSheet.create({
   root: {
-    height: 140,
+    height: 100,
     
   },
   horizontalScrollView: {
-    height: 140,
+    height: 100,
     overflow: 'hidden',
     position: 'relative',
   },
