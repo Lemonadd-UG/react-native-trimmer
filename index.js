@@ -12,7 +12,7 @@ import {
 
 import * as Arrow from './Arrow';
 
-const { width: screenWidth, height: screenHeight} = Dimensions.get('window');
+const {  height: screenHeight} = Dimensions.get('window');
 
 
 const MINIMUM_TRIM_DURATION = 1000;
@@ -66,7 +66,7 @@ export default class Trimmer extends React.Component {
       internalScrubbingPosition: 0,
     }
   }
-  
+ 
   clamp = ({ value, min, max }) => Math.min(Math.max(value, min), max);
 
   initiateAnimator = () => {
@@ -101,7 +101,7 @@ export default class Trimmer extends React.Component {
         totalDuration,
       } = this.props;
       
-      const trackWidth = (screenWidth) * trackScale
+      const trackWidth = (this.props.style.width) * trackScale
       const calculatedScrubberPosition = (scrubberPosition / totalDuration) * trackWidth;
       
       const newScrubberPosition = ((calculatedScrubberPosition + gestureState.dx) / trackWidth ) * totalDuration
@@ -147,7 +147,7 @@ export default class Trimmer extends React.Component {
         maxTrimDuration = MAXIMUM_TRIM_DURATION,
       } = this.props;
       
-      const trackWidth = screenWidth * trackScale
+      const trackWidth = this.props.style.width * trackScale
       const calculatedTrimmerRightHandlePosition = (trimmerRightHandlePosition / totalDuration) * trackWidth;
 
       const newTrimmerRightHandlePosition = ((calculatedTrimmerRightHandlePosition + gestureState.dx) / trackWidth ) * totalDuration
@@ -206,7 +206,7 @@ export default class Trimmer extends React.Component {
         maxTrimDuration = MAXIMUM_TRIM_DURATION,
       } = this.props;
       
-      const trackWidth = (screenWidth) * trackScale
+      const trackWidth = (this.props.style.width) * trackScale
       const calculatedTrimmerLeftHandlePosition = (trimmerLeftHandlePosition / totalDuration) * trackWidth;
       
       const newTrimmerLeftHandlePosition = ((calculatedTrimmerLeftHandlePosition + gestureState.dx) / trackWidth ) * totalDuration
@@ -372,9 +372,9 @@ export default class Trimmer extends React.Component {
       trimmingRightHandleValue
     } = this.state;
 
-    const trackWidth = screenWidth * trackScale
+    const trackWidth = this.props.style.width * trackScale
     if(isNaN(trackWidth)) {
-      console.log('ERROR render() trackWidth !== number. screenWidth', screenWidth, ', trackScale', trackScale, ', ', trackWidth)
+      console.log('ERROR render() trackWidth !== number. this.props.style.width', this.props.style.width, ', trackScale', trackScale, ', ', trackWidth)
     }
     const trackBackgroundStyles = [
       styles.trackBackground,
@@ -396,7 +396,7 @@ export default class Trimmer extends React.Component {
     const onLayoutHandler = centerOnLayout
         ? {
             onLayout: () => {
-            const centerOffset = actualTrimmerOffset + (actualTrimmerWidth / 2) - (screenWidth / 2);
+            const centerOffset = actualTrimmerOffset + (actualTrimmerWidth / 2) - (this.props.style.width / 2);
             this.scrollView.scrollTo({x: centerOffset, y: 0, animated: false});
             }
         }
