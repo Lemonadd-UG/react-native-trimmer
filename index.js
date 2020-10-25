@@ -455,13 +455,7 @@ export default class Trimmer extends React.Component {
               )
               : null
           }
-          <View {...this.leftHandlePanResponder.panHandlers} style={[
-            styles.handle, 
-            styles.leftHandle,
-            { backgroundColor: tintColor, left: actualTrimmerOffset - HANDLE_WIDTHS }
-          ]}>
-            <Arrow.Left />
-          </View>
+
           <View style={[
             styles.trimmer,
             { width: actualTrimmerWidth, left: actualTrimmerOffset },
@@ -498,7 +492,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     borderColor: TRACK_BORDER_COLOR,
-    height: 100,
+    height: 52,
     marginHorizontal: HANDLE_WIDTHS + TRACK_PADDING_OFFSET,
   },
   trimmer: {
@@ -507,12 +501,12 @@ const styles = StyleSheet.create({
     top: 17,
     borderColor: TINT_COLOR,
     borderWidth: 3,
-    height: 106,
+    height: 55,
   },
   handle: {
     position: 'absolute',
     width: HANDLE_WIDTHS,
-    height: 106,
+    height: 55,
     backgroundColor: TINT_COLOR,
     top: 17,
   },
