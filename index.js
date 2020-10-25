@@ -25,13 +25,13 @@ const SHOW_SCROLL_INDICATOR = true
 const CENTER_ON_LAYOUT = true
 
 const TRACK_PADDING_OFFSET = 10;
-const HANDLE_WIDTHS = 30;
+const HANDLE_WIDTHS = 25;
 
-const MARKER_INCREMENT = 5000;
+const MARKER_INCREMENT = 500;
 const SPECIAL_MARKER_INCREMEMNT = 5;
 
-const TRACK_BACKGROUND_COLOR = '#f2f6f5';
-const TRACK_BORDER_COLOR = '#c8dad3';
+const TRACK_BACKGROUND_COLOR = '#18181A';
+const TRACK_BORDER_COLOR = '#18181A';
 const MARKER_COLOR = '#c8dad3';
 const TINT_COLOR = '#93b5b3';
 const SCRUBBER_COLOR = '#63707e'
@@ -459,7 +459,7 @@ export default class Trimmer extends React.Component {
           <View style={[
             styles.trimmer,
             { width: actualTrimmerWidth, left: actualTrimmerOffset },
-            { borderColor: tintColor }
+            { borderColor: tintColor, borderTopLeftRadius: 9, borderBottomLeftRadius: 9 }
           ]}>
             <View style={[styles.selection, { backgroundColor: tintColor }]}/>
           </View>
@@ -479,6 +479,7 @@ export default class Trimmer extends React.Component {
 const styles = StyleSheet.create({
   root: {
     height: 140,
+    
   },
   horizontalScrollView: {
     height: 140,
@@ -489,7 +490,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginVertical: 20,
     backgroundColor: TRACK_BACKGROUND_COLOR,
-    borderRadius: 5,
+    borderRadius: 9, 
     borderWidth: 1,
     borderColor: TRACK_BORDER_COLOR,
     height: 52,
