@@ -25,7 +25,7 @@ const SHOW_SCROLL_INDICATOR = true
 const CENTER_ON_LAYOUT = true
 
 const TRACK_PADDING_OFFSET = 10;
-const HANDLE_WIDTHS = 30;
+const HANDLE_WIDTHS = 25;
 
 const MARKER_INCREMENT = 500;
 const SPECIAL_MARKER_INCREMEMNT = 5;
@@ -498,17 +498,17 @@ const styles = StyleSheet.create({
   trimmer: {
     position: 'absolute',
     left: TRACK_PADDING_OFFSET,
-    top: 17,
+    top: 19,
     borderColor: TINT_COLOR,
     borderWidth: 3,
-    height: 55,
+    height: 53,
   },
   handle: {
     position: 'absolute',
     width: HANDLE_WIDTHS,
-    height: 55,
+    height: 53,
     backgroundColor: TINT_COLOR,
-    top: 17,
+    top: 19,
   },
   leftHandle: {
     borderTopLeftRadius: 10,
